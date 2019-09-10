@@ -15,10 +15,10 @@ public class Directivo extends Empleado{
     private String categoria;
     private ArrayList<Empleado> subordinados;
 
-    public Directivo(String categoria, ArrayList<Empleado> subordinados, int sueldo_bruto, String nombre, int edad) {
+    public Directivo(String categoria, int sueldo_bruto, String nombre, int edad) {
         super(sueldo_bruto, nombre, edad);
         this.categoria = categoria;
-        this.subordinados = subordinados;
+        subordinados=new ArrayList<Empleado>();
     }
 
     public String getCategoria() {

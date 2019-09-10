@@ -6,14 +6,18 @@
 package proyectoempresa;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  *
  * @author delly
  */
 public class Empresa {
-    private ArrayList<Cliente> clientes;
-    private  ArrayList<Empleado> empleados;
+
+    private List clientes;
+    private ArrayList<Empleado> empleados;
     private String nombre;
 
     public Empresa(String nombre) {
@@ -22,7 +26,7 @@ public class Empresa {
         this.nombre = nombre;
     }
 
-    public ArrayList<Cliente> getClientes() {
+    public List<Cliente> getClientes() {
         return clientes;
     }
 
@@ -46,5 +50,15 @@ public class Empresa {
         this.nombre = nombre;
     }
 
-   
+    public void ordenarClientes() {
+        Collections.sort(clientes, new Comparator<Cliente>() {
+            public int compare(Cliente obj1, Cliente obj2) {
+                return obj1.getNombre().compareTo(obj2.getNombre());
+            }
+        });
+        clientes.forEach(it -> {
+            Cliente vari = (Cliente) it;
+            System.out.println(vari.getNombre());
+        });
+    }
 }
